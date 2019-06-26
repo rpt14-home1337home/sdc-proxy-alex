@@ -26,12 +26,14 @@ class App extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  // airbnb-env2.czrmvm8vbv.us-west-1.elasticbeanstalk.com
   componentDidMount() {
-    fetch('http://localhost:3001/retrieve', {
+    // fetch('http://localhost:3001/retrieve', {
+    fetch('/retrieve', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -57,6 +59,7 @@ class App extends React.Component {
             'eight',
             'nine',
           ];
+          console.log(randomSet[Math.floor(Math.random() * randomSet.length)]);
           return randomSet[Math.floor(Math.random() * randomSet.length)];
         })();
 
