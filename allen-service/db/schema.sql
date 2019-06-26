@@ -1,6 +1,6 @@
 -- DROP DATABASE IF EXISTS airbnb;
 
--- CREATE DATABASE airbnb;
+CREATE DATABASE airbnb;
 
 USE airbnb;
 
@@ -13,3 +13,10 @@ CREATE TABLE `photos` (
   `photo_set` VARCHAR(10),
   PRIMARY KEY (`id`)
 )
+
+-- LOAD DATA LOCAL INFILE '/Users/allen/Desktop/photos.csv'
+-- INTO TABLE photos
+-- FIELDS TERMINATED BY ','
+-- LINES TERMINATED BY '\n'
+-- IGNORE 1 ROWS
+-- (id, likes, username, link, tag, photo_set);

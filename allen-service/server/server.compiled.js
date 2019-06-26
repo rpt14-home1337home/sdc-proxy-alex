@@ -18,6 +18,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.get('/retrieve', function (req, res) {
+  // dbConnection.connectAsync().then(() => {
+  //   dbConnection.retrieve((data) => {
+  //     res.send(data);
+  //   });
+  // });
   dbConnection.retrieve(function (data) {
     res.send(data);
   });
