@@ -24,7 +24,7 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClick, false);
-    fetch('aa1rpxy6dcrsyft.com8thriqmbd.us-east-1.rds.amazonaws.com/checkout')
+    fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/checkout')
     .then(res => res.json())
     .then((json) => {
       this.setState({
