@@ -76,7 +76,7 @@ class Modal extends React.Component {
       document.getElementById('endDate').focus();
     } else {
       // fetch('http://localhost:3002/', {
-      fetch('/', {
+      fetch('http://reservation-env.deb9z9c295.us-east-1.elasticbeanstalk.com/', {
         method: 'POST',
         body: JSON.stringify({
           checkin: this.state.startDate,
