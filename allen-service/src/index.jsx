@@ -29,7 +29,7 @@ class App extends React.Component {
   // airbnb-env2.czrmvm8vbv.us-west-1.elasticbeanstalk.com
   componentDidMount() {
     // fetch('http://localhost:3001/retrieve', {
-    fetch('/retrieve', {
+    fetch('http://airbnb-env2.czrmvm8vbv.us-west-1.elasticbeanstalk.com/retrieve', {
       method: 'GET',
       // headers: {
       //   'Content-Type': 'application/json',
