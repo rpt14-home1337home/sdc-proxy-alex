@@ -12,11 +12,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/retrieve', (req, res) => {
-  // dbConnection.connectAsync().then(() => {
-  //   dbConnection.retrieve((data) => {
-  //     res.send(data);
-  //   });
-  // });
 
   dbConnection.retrieve((data) => {
     res.send(data);
