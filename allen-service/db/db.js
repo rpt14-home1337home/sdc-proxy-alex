@@ -52,18 +52,6 @@ const retrieve = (callback) => {
   });
 };
 
-// const connectAsync = () => {
-//   return new Promise((resolve, reject) => {
-//     connection.connect((err) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve('Connected!');
-//       }
-//     });
-//   })
-// }
-
 // connection.end();
 
 module.exports = {
