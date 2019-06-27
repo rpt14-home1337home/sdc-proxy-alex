@@ -10,7 +10,7 @@ class Ratings extends React.Component {
 
   render() {
     return (
-      <button id="reviews">
+      <button id="reviews-checkout">
         <div>
           <span id="star-ratings-spacing">
             <span role="img" id="star-ratings">
