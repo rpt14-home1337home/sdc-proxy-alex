@@ -26,7 +26,6 @@ class App extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  // airbnb-env2.czrmvm8vbv.us-west-1.elasticbeanstalk.com
   componentDidMount() {
     // fetch('http://localhost:3001/retrieve', {
     fetch('http://airbnb-env2.czrmvm8vbv.us-west-1.elasticbeanstalk.com/retrieve', {
