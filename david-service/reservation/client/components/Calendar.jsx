@@ -7,6 +7,7 @@ class Calendar extends React.Component {
     super(props);
 
     this.state = {
+      isMounted: false,
       now: moment(),
       today: moment(),
       startDate: this.props.startDate,
@@ -28,7 +29,8 @@ class Calendar extends React.Component {
     .then(res => res.json())
     .then((json) => {
       this.setState({
-        blockedDates: json
+        blockedDates: json,
+        isMounted: true
       });
     });
   }
@@ -168,39 +170,45 @@ class Calendar extends React.Component {
       }
     });
 
-    return (
-      <div id="calendar-modal" ref={node => { this.node = node; }}>
-        <div id="calendar-modal-padding">
-          <div id='calendar-container'>
-            <button
-              className='previous-month-container'
-              onClick={this.handlePrev}
-            >
-              <svg id="previous-month-arrow"></svg>
-            </button>
-            <div id='current-period'><strong>{this.currentMonth()} {this.currentYear()}</strong></div>
-            <button
-              className='next-month-container'
-              onClick={this.handleNext}
-            >
-              <svg id="next-month-arrow"></svg>
-            </button>
+    if (this.state.isMounted) {
+      return (
+        <div id="calendar-modal" ref={node => { this.node = node; }}>
+          <div id="calendar-modal-padding">
+            <div id='calendar-container'>
+              <button
+                className='previous-month-container'
+                onClick={this.handlePrev}
+              >
+                <svg id="previous-month-arrow"></svg>
+              </button>
+              <div id='current-period'><strong>{this.currentMonth()} {this.currentYear()}</strong></div>
+              <button
+                className='next-month-container'
+                onClick={this.handleNext}
+              >
+                <svg id="next-month-arrow"></svg>
+              </button>
+            </div>
+            <table id='calendar'>
+              <thead>
+                <tr id='weekdays-header'>
+                  {this.weekdaysMin()}
+                </tr>
+              </thead>
+              <tbody>
+                {weeks.map((week, index) => (
+                  <tr key={index}>{week}</tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <table id='calendar'>
-            <thead>
-              <tr id='weekdays-header'>
-                {this.weekdaysMin()}
-              </tr>
-            </thead>
-            <tbody>
-              {weeks.map((week, index) => (
-                <tr key={index}>{week}</tr>
-              ))}
-            </tbody>
-          </table>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div id="calendar-modal" ref={node => { this.node = node; }}></div>
+      );
+    }
   }
 }
 
